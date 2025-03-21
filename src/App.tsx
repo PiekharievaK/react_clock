@@ -37,7 +37,11 @@ export class App extends React.Component<State> {
       this.setState({ clockName: getRandomName() });
     }, 3300);
   };
-
+  
+  componentWillUnmount() {
+    document.removeEventListener('click', this.leftClick);
+    document.removeEventListener('contextmenu', this.rightClick);
+  }
   render() {
     return (
       <div className="App">
